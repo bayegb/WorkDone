@@ -52,14 +52,6 @@ train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=bat
 val_loader = torch.utils.data.DataLoader(dataset=val_dataset, batch_size=batch_size, shuffle=False)
 test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False)
 
-# reshape the data from matrices to vectors
-X_train = X_train.reshape(-1, 28*28)
-X_valid = X_valid.reshape(-1, 28*28)
-X_test = X_test.reshape(-1, 28*28)
-
-print(X_train.shape)
-print(X_valid.shape)
-print(X_test.shape)
 
 # Which model to use?
 # How to go through the layers in an effort to train the model?
