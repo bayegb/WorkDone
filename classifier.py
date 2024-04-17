@@ -41,6 +41,15 @@ print(y_valid.shape)
 print(X_test.shape)
 print(y_test.shape)
 
+# reshape the data from matrices to vectors
+X_train = X_train.reshape(-1, 28*28)
+X_valid = X_valid.reshape(-1, 28*28)
+X_test = X_test.reshape(-1, 28*28)
+
+print(X_train.shape)
+print(X_valid.shape)
+print(X_test.shape)
+
 # Create data loaders
 batch_size = 64
 
