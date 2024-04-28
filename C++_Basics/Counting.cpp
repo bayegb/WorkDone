@@ -6,7 +6,7 @@
 #include <fstream>     //to manipulate txt files
 
 
-namespace FLLBAY001 {
+namespace FLLBAY001 { //use of name space ensures that labels within a program can be uniquiley refered to without fear of duplication
 std::vector<int> count(std::ifstream& inputFile) 
 {
 	int i=0; //number of individual characters
