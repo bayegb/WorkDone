@@ -1,0 +1,15 @@
+Author : Baye-Saliou Falling
+Topic : Image processing using a mean filter
+Language: Java 
+
+There is a parallel and serial version of the same mean filter. The parallel version uses the ForkJoin Framework. The programs uses the
+sliding window technique to filter the image.
+
+How to run the programs :
+
+java Program.java inputImage.jpg outputImage.jpg windowLength 
+
+.....this will produce outputImage.jpg which is filtered. Ensure that inputImage.jpg is in the same directory as Program.java.
+
+Read the comments on the code to understand it better. 
+
