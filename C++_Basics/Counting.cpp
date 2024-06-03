@@ -1,13 +1,14 @@
 #include <iostream>   //a system header file - needed to do simple I/O
 #include "Counting.h"	         // header file - contains declaration of count()
-#include <string>      
-#include <vector>      
-#include <sstream>     //to use stringstream 
+#include <string>
+#include <vector>
+#include <sstream>     //to use stringstream
 #include <fstream>     //to manipulate txt files
 
 
-namespace FLLBAY001 {
-std::vector<int> count(std::ifstream& inputFile) 
+namespace FLLBAY001 { //use of name space ensures that labels within a program can be uniquiley refered to without fear of duplication
+
+std::vector<int> count(std::ifstream& inputFile)
 {
 	int i=0; //number of individual characters
 	int z=0; //number of words
@@ -66,7 +67,7 @@ std::vector<int> count(std::ifstream& inputFile)
 			}
 		}
 
-		
+
 		if (y>0 && i==0){
                 	y=0; //prepare variable for next word
 
