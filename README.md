@@ -1,2 +1,2 @@
 # Leryss
-Frontend and backend code for the companies application.
+Frontend and backend code for LERYSS (Pty) Ltd' s  application.
