@@ -99,43 +99,43 @@ class _CustomerDetails extends State<CustomerDetails> {
 
             SizedBox (height: 40),
             
-            Container( //city drop down menu below 
-              color:  Color.fromARGB(255, 235, 233, 233),
+            // Container( //city drop down menu below 
+            //   color:  Color.fromARGB(255, 235, 233, 233),
 
               // City depending on province selected
               
-              child: SizedBox( 
-                width: 150,
-                child:
-                    DropdownMenu<Object>(
-                    initialSelection: cities,
-                    controller: provinceController,
-                    // requestFocusOnTap is enabled/disabled by platforms when it is null.
-                    // On mobile platforms, this is false by default. Setting this to true will
-                    // trigger focus request on the text field and virtual keyboard will appear
-                    // afterward. On desktop platforms however, this defaults to true.
-                    requestFocusOnTap: true,
-                    label: const Text('Province'),
-                    onSelected: (Object? city) {
-                      setState(() {
-                        selectedCity = city!;
-                      });
-                    },
-                    dropdownMenuEntries: cities.values
-                      .map<DropdownMenuEntry<Provinces>>(
-                          (Object province) {
-                            return DropdownMenuEntry<Provinces>(
-                              value: province,
-                              label: province.province,
-                              enabled: province.province != '',
-                              // style: MenuItemButton.styleFrom(
-                              //   foregroundColor: color.color,
-                              // ),
-                            );
-                    }).toList(),
-                )
-              ),
-            ),
+              // child: SizedBox( 
+              //   width: 150,
+              //   child:
+              //       DropdownMenu<Object>(
+              //       initialSelection: cities,
+              //       controller: provinceController,
+              //       // requestFocusOnTap is enabled/disabled by platforms when it is null.
+              //       // On mobile platforms, this is false by default. Setting this to true will
+              //       // trigger focus request on the text field and virtual keyboard will appear
+              //       // afterward. On desktop platforms however, this defaults to true.
+              //       requestFocusOnTap: true,
+              //       label: const Text('Province'),
+              //       onSelected: (Object? city) {
+              //         setState(() {
+              //           selectedCity = city!;
+              //         });
+              //       },
+              //       dropdownMenuEntries: cities.values
+              //         .map<DropdownMenuEntry<Provinces>>(
+              //             (Object province) {
+              //               return DropdownMenuEntry<Provinces>(
+              //                 value: province,
+              //                 label: province.province,
+              //                 enabled: province.province != '',
+              //                 // style: MenuItemButton.styleFrom(
+              //                 //   foregroundColor: color.color,
+              //                 // ),
+              //               );
+              //       }).toList(),
+              //   )
+              //),
+            //),
 
             SizedBox (height: 40),
 
