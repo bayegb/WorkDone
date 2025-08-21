@@ -31,16 +31,23 @@ class WelcomePage extends StatefulWidget {
   State<WelcomePage> createState() => _WelcomePageState();
 }
 
+// class BottomNavigationBarItem {
+//   const BottomNavigationBarItem
+//   ),
+
+// }
 class _WelcomePageState extends State<WelcomePage> {
   int _counter = 0;
   //Username and Password
-  final usernameController = TextEditingController();
+  final searchBarController = TextEditingController();
   final passwordController = TextEditingController();
+  
+ 
 
   @override
   void dispose() {
     //Clean up the controller when the widget is disposed.
-    usernameController.dispose();
+    searchBarController.dispose();
     passwordController.dispose();
     super.dispose();
 
@@ -54,23 +61,60 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-      //use the makro website as a template or guide !!!!!!!
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Row (
-          children: <Widget>[
-            Text(widget.title),
-            SizedBox(width: 10,),
-            ElevatedButton(onPressed: onPressed, child: const Text("Login")),
-            TextButton(onPressed: onPressed, child: const Text("cart"))
-          ],
+    scrollBehavior: const MaterialScrollBehavior()
+    .copyWith(scrollbars: true);
+    return Scrollbar(
+      child: Scaffold(
+        //Fix issue of scrolling!!!!!!!
+      
+        
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Row (
+            children: <Widget>[
+              Text(widget.title),
+              SizedBox(width: 10,),
+              SizedBox(
+                width: 100,
+                child: TextFormField (
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: "search",
+                    filled: true,
+                    fillColor: Color.fromARGB(255, 255, 255, 255)
+                  ),
+                ),
+              ),
+              SizedBox(width: 10,),
+              ElevatedButton(onPressed: onPressed, child: const Text("Login")),
+              TextButton(onPressed: onPressed, child: const Text("cart"))
+            ],
+          ),
         ),
-      ),
-      body: Center (
-      ),
+        body: Center (
+          child : Column(
+            children: const <Widget>[SizedBox(height:300),],
+          ),
 
+        ),
+        
+        bottomNavigationBar: NavigationBar(
+          height: 300,
+          backgroundColor: Colors.black,
+          destinations: const <Widget> [
+            Column(
+              children: <Widget>[
+                Text("Next", style: TextStyle(backgroundColor: Colors.white),),
+                Text("Next", style: TextStyle(backgroundColor: Colors.white),),
+                Text("Next", style: TextStyle(backgroundColor: Colors.white),),
+                Text("Next", style: TextStyle(backgroundColor: Colors.white),),
+                Text("Next", style: TextStyle(backgroundColor: Colors.white),),],),
+            Text("Up", style: TextStyle(backgroundColor: Colors.white),),
+            Text("Down", style: TextStyle(backgroundColor: Colors.white),)
+          ]
+        ),
+      
+      ),
     );
   }
 

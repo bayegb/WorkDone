@@ -111,6 +111,6 @@ enum WCcities{
   Worcester('Worcester');
 
   const WCcities(this.city);
-  final String city;
+  final String city;                    
 
 }
