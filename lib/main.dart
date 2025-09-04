@@ -68,6 +68,7 @@ class _WelcomePageState extends State<WelcomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Row (
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(widget.title),
             SizedBox(width: 10,),
@@ -91,45 +92,35 @@ class _WelcomePageState extends State<WelcomePage> {
 
       body: SafeArea( //to prevent overlapping with status/nav bars.
         child: SingleChildScrollView(
-          child: Center (
-            child : Column(
-              children: const <Widget>[SizedBox(height:300),],
+          child: Container(
+            // decoration: BoxDecoration(
+            //   image: DecorationImage(
+            //     //image: 
+            //     )
+            // ),
+            child: Center (
+              child : Column(
+                children: <Widget>[
+                  SizedBox(height:300),
+                
+                ],
+              ),
             ),
           ),
         ),
       ),
       
       //sort out issue of this Navigation Bar and start with the GoRoute
-      bottomNavigationBar: BottomNavBar(),
-      // bottomNavigationBar: SafeArea(
-      // child: Container(
-      //   color: Colors.black,
-      //   padding: const EdgeInsets.all(12),
-      //   child: Row(
-      //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-      //     children: const [
-      //       Text("Next", style: TextStyle(color: Colors.white)),
-      //       Text("Up", style: TextStyle(color: Colors.white)),
-      //       Text("Down", style: TextStyle(color: Colors.white)),
-      //     ],
-      //   ),
-      // ),
-      // ),
-      // bottomNavigationBar: NavigationBar(
-      //   height: 300,
-      //   backgroundColor: Colors.black,
-      //   destinations: const <Widget> [
-      //     Column(
-      //       children: <Widget>[
-      //         Text("Next", style: TextStyle(backgroundColor: Colors.white),),
-      //         Text("Next", style: TextStyle(backgroundColor: Colors.white),),
-      //         Text("Next", style: TextStyle(backgroundColor: Colors.white),),
-      //         Text("Next", style: TextStyle(backgroundColor: Colors.white),),
-      //         Text("Next", style: TextStyle(backgroundColor: Colors.white),),],),
-      //     Text("Up", style: TextStyle(backgroundColor: Colors.white),),
-      //     Text("Down", style: TextStyle(backgroundColor: Colors.white),)
-      //   ]
-      // ),
+      bottomNavigationBar: Container(
+        color: Colors.black,
+        padding: const EdgeInsets.all(12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text("LERYSS (Pty) Ltd CopyRight 2025", style: TextStyle(color: Colors.white)),
+          ],
+        )
+      )
       
     );
   }
