@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:middle_man/Screens/customer_Details.dart';
+import 'package:middle_man/Screens/loginPage.dart';
 // ignore: depend_on_referenced_packages
 import 'package:middle_man/Widgets/BottomNavigationBar.dart';
 
@@ -60,7 +61,7 @@ class _WelcomePageState extends State<WelcomePage> {
       _counter++;
     });
   }
-
+//NOW FOLLOW EVERYTHING THAT IS ON THE FIGMAPROTOTYPE, SO THAT YOU HAVE SOMETHING TO SHOW VONGANI ,THEN IMPROVE LATER !!!!!!!!!!!!!!!!!
   @override
   Widget build(BuildContext context) {
 
@@ -84,31 +85,29 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
             ),
             SizedBox(width: 10,),
-            ElevatedButton(onPressed: onPressed, child: const Text("Login")),
+            ElevatedButton(
+              onPressed: () {Navigator.push(context, MaterialPageRoute<void>(builder: (BuildContext context)=>LoginPage(title: 'yes')));}, 
+              child: const Text("Login")
+            ),
             TextButton(onPressed: onPressed, child: const Text("cart"))
           ],
         ),
       ),
 
-      body: SafeArea( //to prevent overlapping with status/nav bars.
-        child: SingleChildScrollView(
-          child: Container(
-            // decoration: BoxDecoration(
-            //   image: DecorationImage(
-            //     //image: 
-            //     )
-            // ),
-            child: Center (
-              child : Column(
-                children: <Widget>[
-                  SizedBox(height:300),
-                
-                ],
-              ),
+      body: Stack(
+        children:<Widget>[
+        Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/peopleWaitingForTaxi.jpg"),
+              fit: BoxFit.cover,
             ),
           ),
         ),
+        Text('YES'),
+        ]
       ),
+
       
       //sort out issue of this Navigation Bar and start with the GoRoute
       bottomNavigationBar: Container(

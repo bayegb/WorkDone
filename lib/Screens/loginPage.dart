@@ -13,7 +13,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   int _counter = 0;
-  //Username and Password
+  //Username and Password controllers
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -26,9 +26,15 @@ class _LoginPageState extends State<LoginPage> {
 
   }
 
-  void _incrementCounter() {
+  String userName = "";
+  String password = "";
+
+  void _storeValues() {
     setState(() {
-      _counter++;
+      userName= usernameController.value.toString();
+      password = passwordController.value.toString();
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => const CustomerDetails()));
     });
   }
 
@@ -40,78 +46,85 @@ class _LoginPageState extends State<LoginPage> {
         title: Text(widget.title),
 
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              color:  Color.fromARGB(255, 235, 233, 233),
-              child: SizedBox( 
-                width: 150,
-                child:
-                  TextFormField(
-                    textAlign: TextAlign.center,
-                    controller: usernameController,
-                    decoration: const InputDecoration(hintText: 'Username', 
-                      //contentPadding: EdgeInsets.symmetric(vertical: 2.0,horizontal: 2.0,),
-                        ),
-                    validator: (String? value) {
-                      if(value == null || value.isEmpty){
-                        return 'Enter your Username please.';
-                      }
-                      return null;
-                    }
-                  ),  
-              ),
-            ),
-            
-            SizedBox (height: 40),
 
-            Container(
-              color:  Color.fromARGB(255, 235, 233, 233),
-              //decoration: ,
-              child: SizedBox(
-                width: 150,
-                child: TextFormField(
-                    controller: passwordController,
-                    textAlign: TextAlign.center,
-                    decoration: const InputDecoration(hintText: 'Password',),
-                    validator: (String? value) {
-                    if(value == null || value.isEmpty){
-                      return 'Enter your Password please.';
-                    }
-                      return null;
-                    }
-                  )
-              ),
-            ),
-            
-            // const Text(
-            //   'You have pushed the button this many times:',
-            // ),
-            SizedBox (height: 20),
-            // Text(
-            //   '$_counter'+' '+passwordController.text+' '+usernameController.text,
-            //   style: Theme.of(context).textTheme.headlineMedium,
-            // ),
+      body: Stack(
 
-            SizedBox(
-              width: 80,
-              child: TextButton(
-                onPressed://_incrementCounter, // add transition to the next page here 
-                //tooltip: '',
-                 () { // LEARN HOW TO USE THE GOROUTE
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const CustomerDetails()),
-                  );
-                 },
-                child: const Text('Login', selectionColor: Color.fromARGB(255, 255, 255, 255)),
-        
-              ),
+        children: <Widget>[ 
+        Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/V&AMALL.jpg"),
+              fit: BoxFit.cover,
             ),
-          ],
-          
+          ),
         ),
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                color:  Color.fromARGB(255, 235, 233, 233),
+                child: SizedBox( 
+                  width: 150,
+                  child:
+                    TextFormField(
+                      textAlign: TextAlign.center,
+                      controller: usernameController,
+                      decoration: const InputDecoration(hintText: 'Username', 
+                        //contentPadding: EdgeInsets.symmetric(vertical: 2.0,horizontal: 2.0,),
+                          ),
+                      validator: (String? value) {
+                        if(value == null || value.isEmpty){
+                          return 'Enter your Username please.';
+                        }
+                        return null;
+                      }
+                    ),  
+                ),
+              ),
+              
+              SizedBox (height: 40),
+        
+              Container(
+                color:  Color.fromARGB(255, 235, 233, 233),
+                //decoration: ,
+                child: SizedBox(
+                  width: 150,
+                  child: TextFormField(
+                      controller: passwordController,
+                      textAlign: TextAlign.center,
+                      decoration: const InputDecoration(hintText: 'Password',),
+                      validator: (String? value) {
+                      if(value == null || value.isEmpty){
+                        return 'Enter your Password please.';
+                      }
+                        return null;
+                      }
+                    )
+                ),
+              ),
+              
+        
+              SizedBox (height: 20),
+        
+              SizedBox(
+                width: 80,
+                child: TextButton(
+                  onPressed: _storeValues,
+                  //  () { // LEARN HOW TO USE THE GOROUTE
+                  //   Navigator.of(context).push(
+                  //     MaterialPageRoute(builder: (context) => const CustomerDetails()),
+                  //   );
+                  // },
+                  child: const Text('Login', selectionColor: Color.fromARGB(255, 255, 255, 255)),
+          
+                ),
+              ),
+            ],
+            
+          ),
+        ),
+        ]
       ),
        // This trailing comma makes auto-formatting nicer for build methods.
     );
