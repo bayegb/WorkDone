@@ -13,7 +13,7 @@ enum Provinces {
   final String province;
 }
 
-enum ECcities{
+enum ECcities {
   Mthatha('Mthatha'),
   Cradock('Cradock'),
   EastLondon('East London'),

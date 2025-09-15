@@ -33,7 +33,7 @@ class _CustomerDetails extends State<CustomerDetails> {
               child: SizedBox( 
                 width: 150,
                 child:
-                    DropdownMenu<Provinces>(
+                  DropdownMenu<Provinces>(
                     initialSelection: Provinces.EC,
                     controller: provinceController,
                     // requestFocusOnTap is enabled/disabled by platforms when it is null.
@@ -45,7 +45,6 @@ class _CustomerDetails extends State<CustomerDetails> {
                     onSelected: (Provinces? province) {
                       setState(() {
                         selectedProvince = province!;
-
                         switch (selectedProvince){
                           case Provinces.WC:
                             cities = WCcities.values;
@@ -83,17 +82,17 @@ class _CustomerDetails extends State<CustomerDetails> {
                     // A SPECIFIC PROVINCE SELECTED ABOVE APPEAR 
                     dropdownMenuEntries: Provinces.values
                       .map<DropdownMenuEntry<Provinces>>(
-                          (Provinces province) {
+                          (Provinces provinceItems) {
                             return DropdownMenuEntry<Provinces>(
-                              value: province,
-                              label: province.province,
-                              enabled: province.province != '',
+                              value: provinceItems,
+                              label: provinceItems.province,
+                              enabled: provinceItems.province != '',//Disables the menu option if the label is empty ('').Prevents users from selecting placeholder/invalid entries.
                               // style: MenuItemButton.styleFrom(
                               //   foregroundColor: color.color,
                               // ),
                             );
                     }).toList(),
-                )
+                  )
               ),
             ),
 
