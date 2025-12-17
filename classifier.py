@@ -42,13 +42,7 @@ class ANN(nn.Module):
         return output_probs
     
 def main():
-    #DATA - Load MNIST from file
-    DATA_DIR = "."
-    download_dataset = False
-
-    train_mnist = datasets.MNIST(DATA_DIR, train=True, download=download_dataset)
-    test_mnist = datasets.MNIST(DATA_DIR, train=False, download=download_dataset)
-
+    #DOWNLOAD DATA HERE
 
     # Create variables for MNIST data   
     X_train = train_mnist.data.float()
